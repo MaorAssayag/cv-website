@@ -274,7 +274,7 @@ export default function HomePage() {
             <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-end opacity-10">
                 <img 
-                  src="/assets/university_of_haifa_logo.jpg"
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/university_of_haifa_logo.jpg`}
                   alt="University of Haifa"
                   className="w-48 h-48 object-contain"
                 />
@@ -290,7 +290,7 @@ export default function HomePage() {
             <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-end opacity-10">
                 <img 
-                  src="/assets/idf_logo.png"
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/idf_logo.png`}
                   alt="IDF"
                   className="w-48 h-48 object-contain"
                 />
@@ -306,7 +306,7 @@ export default function HomePage() {
             <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-end opacity-10">
                 <img 
-                  src="/assets/IsraeliNavy.png"
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
                   alt="Israeli Navy"
                   className="w-48 h-48 object-contain"
                 />
@@ -322,7 +322,7 @@ export default function HomePage() {
             <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-end opacity-10">
                 <img 
-                  src="/assets/IsraeliNavy.png"
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
                   alt="Israeli Navy"
                   className="w-48 h-48 object-contain"
                 />
@@ -338,7 +338,7 @@ export default function HomePage() {
             <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-end opacity-10">
                 <img 
-                  src="/assets/IsraeliNavy.png"
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
                   alt="Israeli Navy"
                   className="w-48 h-48 object-contain"
                 />
@@ -354,7 +354,7 @@ export default function HomePage() {
             <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-end opacity-10">
                 <img 
-                  src="/assets/IsraeliNavy.png"
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
                   alt="Israeli Navy"
                   className="w-48 h-48 object-contain"
                 />
