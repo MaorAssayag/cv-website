@@ -22,7 +22,7 @@ export default function HomePage() {
               </a>
             </Button>
             <Button variant="outline" asChild>
-              <a href="https://linkedin.com/in/maor-assayag" target="_blank" rel="noopener noreferrer">
+              <a href="https://linkedin.com/in/maorassayag" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="w-4 h-4 mr-2" />
                 LinkedIn
               </a>
@@ -276,7 +276,7 @@ export default function HomePage() {
                 <img 
                   src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/university_of_haifa_logo.jpg`}
                   alt="University of Haifa"
-                  className="w-48 h-48 object-contain"
+                  className="w-48C h-48 object-contain"
                 />
               </div>
               <div className="flex justify-between items-center relative z-10">
