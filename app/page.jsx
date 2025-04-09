@@ -50,8 +50,9 @@ export default function HomePage() {
                   <span className="text-gray-500">May 2020 – Present</span>
                 </div>
                 <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
-                  <li>Conducting research, design, architecture, development, evaluation, integration, and maturation of communication systems</li>
-                  <li>Designed and developed features of 20+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
+                  <li>Conducting research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
+                  <li>Leading teams of 15-20 programmers, engineers and QA.</li>
+                  <li>Designed and developed features of 35+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
                   <li>Leading research in DSP projects, including RF communication system detection and decoding through spectrum analysis and advanced entropy theory in challenging environments (low SNR, Doppler effects, etc.)</li>
                   <li>Designed and implemented custom communication protocols over various RF bands/Satellite</li>
                   <li>Led orchestration solution for real-time operational combat systems using Nomad, Consul, and Vault</li>
