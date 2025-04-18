@@ -12,7 +12,7 @@ export default function HomePage() {
         <div className="text-center space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Maor Assayag</h1>
           <p className="text-xl text-gray-600">
-            Laser-focused on research and innovation to create a positive societal impact.
+            Seeking a senior DSP & AI research role to drive innovation and create positive societal impact.
           </p>
           <div className="flex justify-center gap-4 pt-4">
             <Button variant="outline" asChild>
@@ -52,10 +52,13 @@ export default function HomePage() {
                 <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
                   <li>Conducting research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
                   <li>Leading teams of 15-20 programmers, engineers and QA.</li>
+                  <li>My passion is to create. Dedicating years to 17-hour workdays, writing ∼45k LOC per year.</li>
+                  <li>Brought novel ideas from initial conception through R&D phases to successful deployment in new operational
+                  combat systems.</li>
                   <li>Designed and developed features of 35+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
                   <li>Leading research in DSP projects, including RF communication system detection and decoding through spectrum analysis and advanced entropy theory in challenging environments (low SNR, Doppler effects, etc.)</li>
                   <li>Designed and implemented custom communication protocols over various RF bands/Satellite</li>
-                  <li>Led orchestration solution for real-time operational combat systems using Nomad, Consul, and Vault</li>
+                  <li>Led orchestration solution engineering for real-time operational combat systems using Nomad, Consul, and Vault</li>
                   <li>Managed CI/CD process using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
                   <li>Interviewed 300+ young talents for unit enrollment across various roles</li>
                 </ul>
@@ -255,7 +258,7 @@ export default function HomePage() {
                   <Badge>Python</Badge>
                 </div>
                 <p className="mt-2 text-gray-600">
-                  Deep learning models to detect and decode Morse code signals
+                    Morse code signals detection and decoding using deep learning models (LSTM-RNN & RCNN).
                 </p>
                 <Button variant="link" className="mt-2 p-0" asChild>
                   <a href="https://github.com/MaorAssayag/morse-deep-learning-detect-and-decode" target="_blank" rel="noopener noreferrer">
