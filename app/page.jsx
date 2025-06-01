@@ -47,17 +47,17 @@ export default function HomePage() {
                     <h3 className="text-xl font-semibold">R&D Team Lead</h3>
                     <p className="text-gray-600">Israeli Navy R&D Center</p>
                   </div>
-                  <span className="text-gray-500">May 2020 – Present</span>
+                  <span className="text-gray-500">May 2020 – June 2025</span>
                 </div>
                 <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
-                  <li>Conducting research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
+                  <li>Led research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
                   <li>Leading teams of 15-20 programmers, engineers and QA.</li>
                   <li>My passion is to create. Dedicating years to 17-hour workdays, writing ∼45k LOC per year.</li>
                   <li>Brought novel ideas from initial conception through R&D phases to successful deployment in new operational
                   combat systems.</li>
                   <li>Designed and developed features of 35+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
                   <li>Leading research in DSP projects, including RF communication system detection and decoding through spectrum analysis and advanced entropy theory in challenging environments (low SNR, Doppler effects, etc.)</li>
-                  <li>Designed and implemented custom communication protocols over various RF bands/Satellite</li>
+                  <li>Designed and implemented custom communication protocols (encoding, compression, parsing, fragmentation, and encryption) over various RF bands/Satellite</li>
                   <li>Led orchestration solution engineering for real-time operational combat systems using Nomad, Consul, and Vault</li>
                   <li>Managed CI/CD process using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
                   <li>Interviewed 300+ young talents for unit enrollment across various roles</li>
@@ -72,10 +72,10 @@ export default function HomePage() {
                     <h3 className="text-xl font-semibold">UI/UX Director</h3>
                     <p className="text-gray-600">Israeli Navy R&D Center</p>
                   </div>
-                  <span className="text-gray-500">Oct 2020 – Present</span>
+                  <span className="text-gray-500">Oct 2020 – June 2025</span>
                 </div>
                 <p className="mt-4 text-gray-700">
-                  Leading UI/UX design for operational and experimental communication combat systems, standardizing design patterns and components across teams and accelerating development velocity
+                  Led UI/UX design for combat systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity.                
                 </p>
               </CardContent>
             </Card>
@@ -87,7 +87,7 @@ export default function HomePage() {
                     <h3 className="text-xl font-semibold">Full-Stack Engineer</h3>
                     <p className="text-gray-600">Israeli Navy R&D Center</p>
                   </div>
-                  <span className="text-gray-500">Oct 2019 – Present</span>
+                  <span className="text-gray-500">Oct 2019 – June 2025</span>
                 </div>
               </CardContent>
             </Card>
@@ -278,7 +278,7 @@ export default function HomePage() {
             <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-end opacity-10">
                 <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/university_of_haifa_logo.jpg`}
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/university_of_haifa.png`}
                   alt="University of Haifa"
                   className="w-48C h-48 object-contain"
                 />
@@ -367,6 +367,22 @@ export default function HomePage() {
                 <div>
                   <h3 className="font-medium">Israeli Navy Computer and Software Development Center Excellence Award</h3>
                   <p className="text-gray-500">2021</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
+              <div className="absolute inset-0 flex items-center justify-end opacity-10">
+                <img 
+                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/Ben-Gurion_University_of_the_Negev.png`}
+                  alt="Ben-Gurion University"
+                  className="w-48 h-48 object-contain"
+                />
+              </div>
+              <div className="flex justify-between items-center relative z-10">
+                <div>
+                  <h3 className="font-medium">Ben-Gurion University B.Sc Engineering Project Departmental Representative & Audience Favorite</h3>
+                  <p className="text-gray-500">2019</p>
                 </div>
               </div>
             </div>
