@@ -82,6 +82,11 @@ module.exports = {
           '0%, 100%': { opacity: 0.1 },
           '50%': { opacity: 1 },
         },
+        "whale-signal": {
+          '0%': { opacity: 0.8, transform: 'scale(0.5)' },
+          '50%': { opacity: 0.4, transform: 'scale(1)' },
+          '100%': { opacity: 0, transform: 'scale(1.5)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -90,6 +95,7 @@ module.exports = {
         "rotate": "rotate 10s linear infinite",
         "glow": "glow 2s ease-in-out infinite",
         "morse": "morse 1s ease-in-out infinite",
+        "whale-signal": "whale-signal 3s ease-out infinite",
       },
     },
   },

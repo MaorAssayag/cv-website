@@ -52,7 +52,7 @@ export default function HomePage() {
                 <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
                   <li>Led research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
                   <li>Leading teams of 15-20 programmers, engineers and QA.</li>
-                  <li>My passion is to create. Dedicating years to 17-hour workdays, writing ∼45k LOC per year.</li>
+                  <li>My passion is to create. Dedicating years to 17-hour workdays and delivering ∼45k LOC per year.</li>
                   <li>Brought novel ideas from initial conception through R&D phases to successful deployment in new operational
                   combat systems.</li>
                   <li>Designed and developed features of 35+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
@@ -75,7 +75,7 @@ export default function HomePage() {
                   <span className="text-gray-500">Oct 2020 – June 2025</span>
                 </div>
                 <p className="mt-4 text-gray-700">
-                  Led UI/UX design for combat systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity.                
+                  Led UI/UX design for combat systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity             
                 </p>
               </CardContent>
             </Card>
@@ -98,8 +98,46 @@ export default function HomePage() {
         <section>
           <h2 className="text-2xl font-bold mb-6">Education</h2>
           <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
+            <Card className="group relative overflow-hidden transform transition-all duration-300">
+              <div className="absolute inset-0">
+                {/* Sperm whale with emitting signals SVG - positioned to the right */}
+                <svg className="absolute right-0 top-0 w-64 h-full" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
+                  {/* Signal waves emanating from whale */}
+                  <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" />
+                  <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" style={{ animationDelay: '1s' }} />
+                  <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" style={{ animationDelay: '2s' }} />
+                  
+                  {/* Additional signal arcs for more visual depth */}
+                  <path d="M 320 100 Q 300 80 280 60" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" />
+                  </path>
+                  <path d="M 320 100 Q 300 120 280 140" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                  </path>
+                  <path d="M 320 100 Q 340 80 360 60" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="0.75s" />
+                  </path>
+                  <path d="M 320 100 Q 340 120 360 140" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="2.25s" />
+                  </path>
+                  
+                  {/* Sperm whale body */}
+                  <g transform="translate(300, 90)">
+                    {/* Whale body */}
+                    <ellipse cx="20" cy="10" rx="35" ry="12" fill="rgba(30, 58, 138, 0.4)" />
+                    {/* Whale head */}
+                    <ellipse cx="0" cy="10" rx="20" ry="15" fill="rgba(30, 58, 138, 0.5)" />
+                    {/* Eye */}
+                    <circle cx="8" cy="8" r="2" fill="rgba(255, 255, 255, 0.8)" />
+                    {/* Signal origin point (forehead) */}
+                    <circle cx="10" cy="5" r="3" fill="rgba(59, 130, 246, 0.6)">
+                      <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+                    </circle>
+                  </g>
+                </svg>
+              </div>
+              <CardContent className="p-6 relative z-10">
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-xl font-semibold">Master of Science in Marine Technologies</h3>
