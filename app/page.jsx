@@ -1,450 +1,472 @@
-import React from 'react';
-import { Github, Linkedin, Mail, Phone, Download, ExternalLink } from 'lucide-react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { Github, Linkedin, Mail, Phone, Download, ExternalLink, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 
 export default function HomePage() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <div className="max-w-4xl mx-auto px-4 py-16 space-y-12">
-        {/* Hero Section */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Maor Assayag</h1>
-          <p className="text-xl text-gray-600">
-            Seeking a senior DSP & AI research role to drive innovation and create positive societal impact.
+    <div className="min-h-screen p-8 md:p-16 space-y-24 max-w-5xl mx-auto relative">
+
+      {/* Header / Contact */}
+      <header className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="space-y-4">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-black">
+            Maor Assayag
+          </h1>
+          <p className="text-lg md:text-xl text-gray-500 font-light tracking-wide">
+            Seeking a senior DSP & AI research role to drive innovation and create positive social impact.
           </p>
-          <div className="flex justify-center gap-4 pt-4">
-            <Button variant="outline" asChild>
-              <a href="https://github.com/MaorAssayag" target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                GitHub
-              </a>
-            </Button>
-            <Button variant="outline" asChild>
-              <a href="https://linkedin.com/in/maorassayag" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="w-4 h-4 mr-2" />
-                LinkedIn
-              </a>
-            </Button>
-            <Button variant="outline" asChild>
-              <a href="mailto:msg.maor@gmail.com">
-                <Mail className="w-4 h-4 mr-2" />
-                Email
-              </a>
-            </Button>
-          </div>
         </div>
 
-        {/* Experience Section */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Experience</h2>
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-semibold">R&D Team Lead</h3>
-                    <p className="text-gray-600">Israeli Navy R&D Center</p>
-                  </div>
-                  <span className="text-gray-500">May 2020 – June 2025</span>
-                </div>
-                <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
-                  <li>Led research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
-                  <li>Leading teams of 15-20 programmers, engineers and QA.</li>
-                  <li>My passion is to create. Dedicating years to 17-hour workdays and delivering ∼45k LOC per year.</li>
-                  <li>Brought novel ideas from initial conception through R&D phases to successful deployment in new operational
-                  combat systems.</li>
-                  <li>Designed and developed features of 35+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
-                  <li>Leading research in DSP projects, including RF communication system detection and decoding through spectrum analysis and advanced entropy theory in challenging environments (low SNR, Doppler effects, etc.)</li>
-                  <li>Designed and implemented custom communication protocols (encoding, compression, parsing, fragmentation, and encryption) over various RF bands/Satellite</li>
-                  <li>Led orchestration solution engineering for real-time operational combat systems using Nomad, Consul, and Vault</li>
-                  <li>Managed CI/CD process using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
-                  <li>Interviewed 300+ young talents for unit enrollment across various roles</li>
-                </ul>
-              </CardContent>
-            </Card>
+        <div className="flex flex-wrap gap-4">
+          <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+            <a href="https://github.com/MaorAssayag" target="_blank" rel="noopener noreferrer">
+              <Github className="w-4 h-4 mr-2" />
+              GitHub
+            </a>
+          </Button>
+          <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+            <a href="https://linkedin.com/in/maorassayag" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-4 h-4 mr-2" />
+              LinkedIn
+            </a>
+          </Button>
+          <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+            <a href="mailto:msg.maor@gmail.com">
+              <Mail className="w-4 h-4 mr-2" />
+              Email
+            </a>
+          </Button>
+          <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+            <a href="assets/Maor_Assayag_Resume.pdf" download>
+              <Download className="w-4 h-4 mr-2" />
+              Download CV
+            </a>
+          </Button>
+          <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+            <a href="tel:+972532794699">
+              <Phone className="w-4 h-4 mr-2" />
+              Call Me
+            </a>
+          </Button>
+        </div>
+      </header>
 
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-semibold">UI/UX Director</h3>
-                    <p className="text-gray-600">Israeli Navy R&D Center</p>
-                  </div>
-                  <span className="text-gray-500">Oct 2020 – June 2025</span>
-                </div>
-                <p className="mt-4 text-gray-700">
-                  Led UI/UX design for combat systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity             
-                </p>
-              </CardContent>
-            </Card>
+      {/* Experience */}
+      <section className="space-y-12">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Experience</h2>
 
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-semibold">Full-Stack Engineer</h3>
-                    <p className="text-gray-600">Israeli Navy R&D Center</p>
-                  </div>
-                  <span className="text-gray-500">Oct 2019 – June 2025</span>
-                </div>
-              </CardContent>
-            </Card>
+        <div className="space-y-8">
+          <div className="glass p-8 rounded-3xl space-y-4 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4" style={{ animationDuration: '800ms', animationFillMode: 'both' }}>
+            <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
+              <div>
+                <h3 className="text-2xl font-bold">R&D Team Lead</h3>
+                <p className="text-gray-500">Israeli Navy R&D Center</p>
+              </div>
+              <span className="text-base font-mono text-gray-400">May 2020 – June 2025</span>
+            </div>
+            <ul className="space-y-3 text-gray-700 leading-relaxed list-disc list-inside marker:text-gray-300">
+              <li>Led research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
+              <li>Leading teams of 15-20 programmers, engineers and QA.</li>
+              <li>My passion is to create. Dedicating years to 17-hour workdays and delivering ∼45k LOC per year.</li>
+              <li>Brought novel ideas from initial conception through R&D phases to successful deployment in new operational combat systems.</li>
+              <li>Designed and developed features of 35+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
+              <li>Leading research in DSP projects, including RF communication system detection and decoding through spectrum analysis and advanced entropy theory in challenging environments (low SNR, Doppler effects, etc.)</li>
+              <li>Designed and implemented custom communication protocols (encoding, compression, parsing, fragmentation, and encryption) over various RF bands/Satellite</li>
+              <li>Led orchestration solution engineering for real-time operational combat systems using Nomad, Consul, and Vault</li>
+              <li>Managed CI/CD process using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
+              <li>Interviewed 300+ young talents for unit enrollment across various roles</li>
+            </ul>
           </div>
-        </section>
 
-        {/* Education Section */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Education</h2>
-          <div className="space-y-6">
-            <Card className="group relative overflow-hidden transform transition-all duration-300">
-              <div className="absolute inset-0">
-                {/* Sperm whale with emitting signals SVG - positioned to the right */}
-                <svg className="absolute right-0 top-0 w-64 h-full" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
-                  {/* Signal waves emanating from whale */}
-                  <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" />
-                  <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" style={{ animationDelay: '1s' }} />
-                  <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" style={{ animationDelay: '2s' }} />
-                  
-                  {/* Additional signal arcs for more visual depth */}
-                  <path d="M 320 100 Q 300 80 280 60" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
-                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" />
-                  </path>
-                  <path d="M 320 100 Q 300 120 280 140" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
-                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="1.5s" />
-                  </path>
-                  <path d="M 320 100 Q 340 80 360 60" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
-                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="0.75s" />
-                  </path>
-                  <path d="M 320 100 Q 340 120 360 140" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
-                    <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="2.25s" />
-                  </path>
-                  
-                  {/* Sperm whale body */}
-                  <g transform="translate(300, 90)">
-                    {/* Whale body */}
-                    <ellipse cx="20" cy="10" rx="35" ry="12" fill="rgba(30, 58, 138, 0.4)" />
-                    {/* Whale head */}
-                    <ellipse cx="0" cy="10" rx="20" ry="15" fill="rgba(30, 58, 138, 0.5)" />
-                    {/* Eye */}
-                    <circle cx="8" cy="8" r="2" fill="rgba(255, 255, 255, 0.8)" />
-                    {/* Signal origin point (forehead) */}
-                    <circle cx="10" cy="5" r="3" fill="rgba(59, 130, 246, 0.6)">
-                      <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
-                    </circle>
-                  </g>
-                </svg>
+          <div className="glass p-8 rounded-3xl space-y-4">
+            <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
+              <div>
+                <h3 className="text-2xl font-bold">UI/UX Director</h3>
+                <p className="text-gray-500">Israeli Navy R&D Center</p>
               </div>
-              <CardContent className="p-6 relative z-10">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-semibold">Master of Science in Marine Technologies</h3>
-                    <p className="text-gray-600">University of Haifa</p>
-                  </div>
-                  <span className="text-gray-500">2023-2025</span>
-                </div>
-                <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
-                  <li>Subjects in the field of DSP and ML/DL</li>
-                  <li>Research on predictive models uncovering temporal dependencies in sperm whale communication</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="text-xl font-semibold">Bachelor of Science in Computer Engineering</h3>
-                    <p className="text-gray-600">Ben-Gurion University</p>
-                  </div>
-                  <span className="text-gray-500">2015-2019</span>
-                </div>
-              </CardContent>
-            </Card>
+              <span className="text-base font-mono text-gray-400">Oct 2020 – June 2025</span>
+            </div>
+            <p className="text-gray-700 leading-relaxed">
+              Led UI/UX design for combat systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity
+            </p>
           </div>
-        </section>
 
-        {/* Open Source Projects */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Open Source Projects</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="group relative overflow-hidden transform transition-all duration-300 hover:shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
-                {/* Underwater waves SVG */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 05 50 500 170" preserveAspectRatio="none">
-                  <path fill="rgba(0,255,255,0.3)" className="animate-wave" d="M-100,96L-52,112C-4,128,92,160,188,160C284,160,380,128,476,112C572,96,668,96,764,112C860,128,956,160,1052,160C1148,160,1244,128,1340,112L1436,96L1436,320L1340,320C1244,320,1148,320,1052,320C956,320,860,320,764,320C668,320,572,320,476,320C380,320,284,320,188,320C92,320,-4,320,-52,320L-100,320Z"></path>
-                  <path fill="rgba(0,255,255,0.2)" className="animate-wave" style={{ animationDelay: '0.5s' }} d="M-100,160L-52,176C-4,192,92,224,188,224C284,224,380,192,476,176C572,160,668,160,764,176C860,192,956,224,1052,224C1148,224,1244,192,1340,176L1436,160L1436,320L1340,320C1244,320,1148,320,1052,320C956,320,860,320,764,320C668,320,572,320,476,320C380,320,284,320,188,320C92,320,-4,320,-52,320L-100,320Z"></path>
-                  <path fill="rgba(0,255,255,0.1)" className="animate-wave" style={{ animationDelay: '1s' }} d="M-100,224L-52,240C-4,256,92,288,188,288C284,288,380,256,476,240C572,224,668,224,764,240C860,256,956,288,1052,288C1148,288,1244,256,1340,240L1436,224L1436,320L1340,320C1244,320,1148,320,1052,320C956,320,860,320,764,320C668,320,572,320,476,320C380,320,284,320,188,320C92,320,-4,320,-52,320L-100,320Z"></path>
-                </svg>
+          <div className="glass p-8 rounded-3xl space-y-4">
+            <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
+              <div>
+                <h3 className="text-2xl font-bold">Full-Stack Engineer</h3>
+                <p className="text-gray-500">Israeli Navy R&D Center</p>
               </div>
-              <CardContent className="p-6 relative z-10">
-                <div className="flex justify-between items-start">
-                  <h3 className="text-lg font-semibold">transmit-OFDM</h3>
-                  <Badge>Python</Badge>
-                </div>
-                <p className="mt-2 text-gray-600">
-                  Orthogonal Frequency Division Multiplexing for acoustic modem transmission
-                </p>
-                <Button variant="link" className="mt-2 p-0" asChild>
-                  <a href="https://github.com/MaorAssayag/transmit-OFDM" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    View Project
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+              <span className="text-base font-mono text-gray-400">Oct 2019 – June 2025</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <Card className="group relative overflow-hidden transform transition-all duration-300 hover:shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
-                {/* Cursor glow SVG */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2" className="animate-glow">
-                    <animate attributeName="r" values="40;45;40" dur="2s" repeatCount="indefinite" />
+      {/* Education */}
+      <section className="space-y-8">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Education</h2>
+        <div className="grid md:grid-cols-1 gap-6">
+          <div className="glass p-8 rounded-3xl space-y-4 relative overflow-hidden group">
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Sperm whale with emitting signals SVG - positioned to the right */}
+              <svg className="absolute right-0 top-0 w-64 h-full" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
+                {/* Signal waves emanating from whale */}
+                <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" />
+                <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" style={{ animationDelay: '1s' }} />
+                <circle cx="320" cy="100" r="30" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="2" className="animate-whale-signal" style={{ animationDelay: '2s' }} />
+
+                {/* Additional signal arcs for more visual depth */}
+                <path d="M 320 100 Q 300 80 280 60" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                  <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" />
+                </path>
+                <path d="M 320 100 Q 300 120 280 140" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                  <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                </path>
+                <path d="M 320 100 Q 340 80 360 60" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                  <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="0.75s" />
+                </path>
+                <path d="M 320 100 Q 340 120 360 140" fill="none" stroke="rgba(99, 102, 241, 0.3)" strokeWidth="1.5" strokeDasharray="5,5">
+                  <animate attributeName="opacity" values="0;0.5;0" dur="3s" repeatCount="indefinite" begin="2.25s" />
+                </path>
+
+                {/* Sperm whale body */}
+                <g transform="translate(300, 90)">
+                  {/* Whale body */}
+                  <ellipse cx="20" cy="10" rx="35" ry="12" fill="rgba(30, 58, 138, 0.4)" />
+                  {/* Whale head */}
+                  <ellipse cx="0" cy="10" rx="20" ry="15" fill="rgba(30, 58, 138, 0.5)" />
+                  {/* Eye */}
+                  <circle cx="8" cy="8" r="2" fill="rgba(255, 255, 255, 0.8)" />
+                  {/* Signal origin point (forehead) */}
+                  <circle cx="10" cy="5" r="3" fill="rgba(59, 130, 246, 0.6)">
+                    <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
                   </circle>
-                  <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2" className="animate-glow">
-                    <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite" />
-                  </circle>
-                  <circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" className="animate-glow">
-                    <animate attributeName="r" values="20;25;20" dur="2s" repeatCount="indefinite" />
-                  </circle>
-                </svg>
+                </g>
+              </svg>
+            </div>
+            <div className="relative z-10">
+              <div className="flex flex-col md:flex-row justify-between md:items-start gap-2">
+                <div>
+                  <h3 className="text-xl font-bold">Master of Science in Marine Technologies</h3>
+                  <p className="text-gray-500">University of Haifa</p>
+                </div>
+                <span className="text-base font-mono text-gray-400">2023-2025</span>
               </div>
-              <CardContent className="p-6 relative z-10">
-                <div className="flex justify-between items-start">
-                  <h3 className="text-lg font-semibold">ngx-beautify-cursor</h3>
-                  <Badge>Angular</Badge>
-                </div>
-                <p className="mt-2 text-gray-600">
-                  Angular package to enhance and customize website cursors
-                </p>
-                <Button variant="link" className="mt-2 p-0" asChild>
-                  <a href="https://github.com/MaorAssayag/ngx-beautify-cursor" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    View Project
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="group relative overflow-hidden transform transition-all duration-200 hover:shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
-                {/* Rotating grid SVG */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  <g className="animate-rotate">
-                    <line x1="0" y1="0" x2="100" y2="0" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="0" y1="25" x2="100" y2="25" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="0" y1="75" x2="100" y2="75" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="0" y1="100" x2="100" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="0" y1="0" x2="0" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="25" y1="0" x2="25" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="75" y1="0" x2="75" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                    <line x1="100" y1="0" x2="100" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                  </g>
-                </svg>
+              <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
+                <li>Subjects in the field of DSP and ML/DL</li>
+                <li>Research on predictive models uncovering temporal dependencies in sperm whale communication</li>
+              </ul>
+            </div>
+          </div>
+          <div className="glass p-8 rounded-3xl space-y-4">
+            <div className="flex flex-col md:flex-row justify-between md:items-start gap-2">
+              <div>
+                <h3 className="text-xl font-bold">Bachelor of Science in Computer Engineering</h3>
+                <p className="text-gray-500">Ben-Gurion University</p>
               </div>
-              <CardContent className="p-6 relative z-10">
-                <div className="flex justify-between items-start">
-                  <h3 className="text-lg font-semibold">chartjs-plugin-cyclic-axis</h3>
-                  <Badge>JavaScript</Badge>
-                </div>
-                <p className="mt-2 text-gray-600">
-                  Chart.js plugin for cyclic pan functionality in scatter charts
-                </p>
-                <Button variant="link" className="mt-2 p-0" asChild>
-                  <a href="https://github.com/MaorAssayag/chartjs-plugin-cyclic-axis" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    View Project
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
+              <span className="text-base font-mono text-gray-400">2015-2019</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <Card className="group relative overflow-hidden transform transition-all duration-300 hover:shadow-lg">
-              <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10">
-                {/* Morse code dots and dashes SVG */}
-                <svg className="absolute bottom-0 right-0 w-48 h-48" viewBox="-10 0 140 100" preserveAspectRatio="none">
-                  {/* Detection border */}
-                  <rect x="25" y="70" width="80" height="20" fill="none" stroke="rgba(0,255,0,0.3)" strokeWidth="2" className="animate-wave">
-                    <animate attributeName="x" values="25;30;25" dur="2s" repeatCount="indefinite" />
-                    <animate attributeName="y" values="70;72;70" dur="2s" repeatCount="indefinite" />
-                    <animate attributeName="width" values="80;85;80" dur="2s" repeatCount="indefinite" />
-                    <animate attributeName="height" values="20;22;20" dur="2s" repeatCount="indefinite" />
+      {/* Open Source Projects */}
+      <section className="space-y-8">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Open Source Projects</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* transmit-OFDM */}
+          <div className="glass p-6 rounded-3xl space-y-4 transition-all duration-500 group relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+              {/* Underwater waves SVG */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 500 170" preserveAspectRatio="none">
+                <path fill="rgba(0,255,255,0.3)" className="animate-wave" d="M-100,96L-52,112C-4,128,92,160,188,160C284,160,380,128,476,112C572,96,668,96,764,112C860,128,956,160,1052,160C1148,160,1244,128,1340,112L1436,96L1436,320L1340,320C1244,320,1148,320,1052,320C956,320,860,320,764,320C668,320,572,320,476,320C380,320,284,320,188,320C92,320,-4,320,-52,320L-100,320Z"></path>
+                <path fill="rgba(0,255,255,0.2)" className="animate-wave" style={{ animationDelay: '0.5s' }} d="M-100,160L-52,176C-4,192,92,224,188,224C284,224,380,192,476,176C572,160,668,160,764,176C860,192,956,224,1052,224C1148,224,1244,192,1340,176L1436,160L1436,320L1340,320C1244,320,1148,320,1052,320C956,320,860,320,764,320C668,320,572,320,476,320C380,320,284,320,188,320C92,320,-4,320,-52,320L-100,320Z"></path>
+                <path fill="rgba(0,255,255,0.1)" className="animate-wave" style={{ animationDelay: '1s' }} d="M-100,224L-52,240C-4,256,92,288,188,288C284,288,380,256,476,240C572,224,668,224,764,240C860,256,956,288,1052,288C1148,288,1244,256,1340,240L1436,224L1436,320L1340,320C1244,320,1148,320,1052,320C956,320,860,320,764,320C668,320,572,320,476,320C380,320,284,320,188,320C92,320,-4,320,-52,320L-100,320Z"></path>
+              </svg>
+            </div>
+            <div className="relative z-10">
+              <div className="flex justify-between items-start">
+                <h3 className="text-lg font-semibold">transmit-OFDM</h3>
+                <Badge>Python</Badge>
+              </div>
+              <p className="mt-2 text-gray-600">
+                Orthogonal Frequency Division Multiplexing for acoustic modem transmission
+              </p>
+              <Button variant="link" className="mt-2 p-0" asChild>
+                <a href="https://github.com/MaorAssayag/transmit-OFDM" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-1" />
+                  View Project
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* ngx-beautify-cursor */}
+          <div className="glass p-8 rounded-3xl space-y-4 group relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
+              {/* Cursor glow SVG */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="2" className="animate-glow">
+                  <animate attributeName="r" values="40;45;40" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" className="animate-glow">
+                  <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="50" cy="50" r="20" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" className="animate-glow">
+                  <animate attributeName="r" values="20;25;20" dur="2s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+            </div>
+            <div className="relative z-10">
+              <div className="flex justify-between items-start">
+                <h3 className="text-lg font-semibold">ngx-beautify-cursor</h3>
+                <Badge>Angular</Badge>
+              </div>
+              <p className="mt-2 text-gray-600">
+                Angular package to enhance and customize website cursors
+              </p>
+              <Button variant="link" className="mt-2 p-0" asChild>
+                <a href="https://github.com/MaorAssayag/ngx-beautify-cursor" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-1" />
+                  View Project
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* chartjs-plugin-cyclic-axis */}
+          <div className="glass p-8 rounded-3xl space-y-4  group relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
+              {/* Rotating grid SVG */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <g className="animate-rotate">
+                  <line x1="0" y1="0" x2="100" y2="0" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="0" y1="25" x2="100" y2="25" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="0" y1="75" x2="100" y2="75" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="0" y1="100" x2="100" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="0" y1="0" x2="0" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="25" y1="0" x2="25" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="75" y1="0" x2="75" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                  <line x1="100" y1="0" x2="100" y2="100" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+                </g>
+              </svg>
+            </div>
+            <div className="relative z-10">
+              <div className="flex justify-between items-start">
+                <h3 className="text-lg font-semibold">chartjs-plugin-cyclic-axis</h3>
+                <Badge>JavaScript</Badge>
+              </div>
+              <p className="mt-2 text-gray-600">
+                Chart.js plugin for cyclic pan functionality in scatter charts
+              </p>
+              <Button variant="link" className="mt-2 p-0" asChild>
+                <a href="https://github.com/MaorAssayag/chartjs-plugin-cyclic-axis" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-1" />
+                  View Project
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          {/* morse-deep-learning */}
+          <div className="glass p-8 rounded-3xl space-y-4 group relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-500/10">
+              {/* Morse code dots and dashes SVG */}
+              <svg className="absolute bottom-0 right-0 w-48 h-48" viewBox="-10 0 140 100" preserveAspectRatio="none">
+                {/* Detection border */}
+                <rect x="25" y="70" width="80" height="20" fill="none" stroke="rgba(234,179,8,0.6)" strokeWidth="2" className="animate-wave">
+                  <animate attributeName="x" values="25;30;25" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="y" values="70;72;70" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="width" values="80;85;80" dur="2s" repeatCount="indefinite" />
+                  <animate attributeName="height" values="20;22;20" dur="2s" repeatCount="indefinite" />
+                </rect>
+                <g className="animate-morse">
+                  <circle cx="30" cy="80" r="2" fill="rgba(0,0,0,0.5)">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+                  </circle>
+                  <rect x="40" y="78" width="8" height="4" fill="rgba(0,0,0,0.5)">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
                   </rect>
-                  <g className="animate-morse">
-                    <circle cx="30" cy="80" r="2" fill="rgba(0,0,0,0.5)">
-                      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
-                    </circle>
-                    <rect x="40" y="78" width="8" height="4" fill="rgba(0,0,0,0.5)">
-                      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
-                    </rect>
-                    <circle cx="55" cy="80" r="2" fill="rgba(0,0,0,0.5)">
-                      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
-                    </circle>
-                    <rect x="65" y="78" width="8" height="4" fill="rgba(0,0,0,0.5)">
-                      <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
-                    </rect>
-                  </g>
-                </svg>
-              </div>
-              <CardContent className="p-6 relative z-10">
-                <div className="flex justify-between items-start">
-                  <h3 className="text-lg font-semibold">morse-deep-learning</h3>
-                  <Badge>Python</Badge>
-                </div>
-                <p className="mt-2 text-gray-600">
-                    Morse code signals detection and decoding using deep learning models (LSTM-RNN & RCNN).
-                </p>
-                <Button variant="link" className="mt-2 p-0" asChild>
-                  <a href="https://github.com/MaorAssayag/morse-deep-learning-detect-and-decode" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4 mr-1" />
-                    View Project
-                  </a>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Awards Section */}
-        <section>
-          <h2 className="text-2xl font-bold mb-6">Awards & Honors</h2>
-          <div className="grid grid-cols-1 gap-4">
-            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-end opacity-10">
-                <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/university_of_haifa.png`}
-                  alt="University of Haifa"
-                  className="w-48C h-48 object-contain"
-                />
-              </div>
-              <div className="flex justify-between items-center relative z-10">
-                <div>
-                  <h3 className="font-medium">University of Haifa Master's Outstanding Excellence Award</h3>
-                  <p className="text-gray-500">2025</p>
-                </div>
-              </div>
+                  <circle cx="55" cy="80" r="2" fill="rgba(0,0,0,0.5)">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+                  </circle>
+                  <rect x="65" y="78" width="8" height="4" fill="rgba(0,0,0,0.5)">
+                    <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite" />
+                  </rect>
+                </g>
+              </svg>
             </div>
-
-            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-end opacity-10">
-                <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/idf_logo.png`}
-                  alt="IDF"
-                  className="w-48 h-48 object-contain"
-                />
+            <div className="relative z-10">
+              <div className="flex justify-between items-start">
+                <h3 className="text-lg font-semibold">morse-deep-learning</h3>
+                <Badge>Python</Badge>
               </div>
-              <div className="flex justify-between items-center relative z-10">
-                <div>
-                  <h3 className="font-medium">IDF Chief of the General Staff Excellence Technological Award</h3>
-                  <p className="text-gray-500">2023</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-end opacity-10">
-                <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
-                  alt="Israeli Navy"
-                  className="w-48 h-48 object-contain"
-                />
-              </div>
-              <div className="flex justify-between items-center relative z-10">
-                <div>
-                  <h3 className="font-medium">Israeli Navy Commander in Chief Award for Creativity, Innovation and Excellence</h3>
-                  <p className="text-gray-500">2022</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-end opacity-10">
-                <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
-                  alt="Israeli Navy"
-                  className="w-48 h-48 object-contain"
-                />
-              </div>
-              <div className="flex justify-between items-center relative z-10">
-                <div>
-                  <h3 className="font-medium">Israeli Navy R&D Brigade Excellence Award</h3>
-                  <p className="text-gray-500">2022</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-end opacity-10">
-                <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
-                  alt="Israeli Navy"
-                  className="w-48 h-48 object-contain"
-                />
-              </div>
-              <div className="flex justify-between items-center relative z-10">
-                <div>
-                  <h3 className="font-medium">Israeli Navy Control Unit Commander Special Contribution Commendation</h3>
-                  <p className="text-gray-500">2022</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-end opacity-10">
-                <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
-                  alt="Israeli Navy"
-                  className="w-48 h-48 object-contain"
-                />
-              </div>
-              <div className="flex justify-between items-center relative z-10">
-                <div>
-                  <h3 className="font-medium">Israeli Navy Computer and Software Development Center Excellence Award</h3>
-                  <p className="text-gray-500">2021</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-end opacity-10">
-                <img 
-                  src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/Ben-Gurion_University_of_the_Negev.png`}
-                  alt="Ben-Gurion University"
-                  className="w-48 h-48 object-contain"
-                />
-              </div>
-              <div className="flex justify-between items-center relative z-10">
-                <div>
-                  <h3 className="font-medium">Ben-Gurion University B.Sc Engineering Project Departmental Representative & Audience Favorite</h3>
-                  <p className="text-gray-500">2019</p>
-                </div>
-              </div>
+              <p className="mt-2 text-gray-600">
+                Morse code signals detection and decoding using deep learning models (LSTM-RNN & RCNN).
+              </p>
+              <Button variant="link" className="mt-2 p-0" asChild>
+                <a href="https://github.com/MaorAssayag/morse-deep-learning-detect-and-decode" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4 mr-1" />
+                  View Project
+                </a>
+              </Button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Contact Section */}
-        <section className="text-center">
-          <div className="inline-flex items-center gap-4">
-            <Button asChild>
-              <a href="tel:+972532794699">
-                <Phone className="w-4 h-4 mr-2" />
-                Call Me
-              </a>
-            </Button>
-            <Button variant="outline" asChild>
-              <a href="assets/Maor_Assayag_Resume.pdf" download>
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
-              </a>
-            </Button>
+      {/* Awards */}
+      <section className="space-y-4">
+        <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Awards & Honors</h2>
+        <div className="grid grid-cols-1 gap-4">
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/university_of_haifa.png`}
+                alt="University of Haifa"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">University of Haifa Master's Outstanding Excellence Award</h3>
+              <p className="text-gray-500">2025</p>
+            </div>
           </div>
-        </section>
+
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/idf_logo.png`}
+                alt="IDF"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">IDF Chief of the General Staff Excellence Technological Award</h3>
+              <p className="text-gray-500">2023</p>
+            </div>
+          </div>
+
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
+                alt="Israeli Navy"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">Israeli Navy Commander in Chief Award for Creativity, Innovation and Excellence</h3>
+              <p className="text-gray-500">2022</p>
+            </div>
+          </div>
+
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
+                alt="Israeli Navy"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">Israeli Navy R&D Brigade Excellence Award</h3>
+              <p className="text-gray-500">2022</p>
+            </div>
+          </div>
+
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
+                alt="Israeli Navy"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">Israeli Navy Control Unit Commander Special Contribution Commendation</h3>
+              <p className="text-gray-500">2022</p>
+            </div>
+          </div>
+
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/IsraeliNavy.png`}
+                alt="Israeli Navy"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">Israeli Navy Computer and Software Development Center Excellence Award</h3>
+              <p className="text-gray-500">2021</p>
+            </div>
+          </div>
+
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/Ben-Gurion_University_of_the_Negev.png`}
+                alt="Ben-Gurion University"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">Ben-Gurion University B.Sc Engineering Project Departmental Representative & Audience Favorite</h3>
+              <p className="text-gray-500">2019</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom Contact Buttons */}
+      <div className="flex justify-center gap-4">
+        <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+          <a href="tel:+972532794699">
+            <Phone className="w-4 h-4 mr-2" />
+            Call Me
+          </a>
+        </Button>
+        <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+          <a href="assets/Maor_Assayag_Resume.pdf" download>
+            <Download className="w-4 h-4 mr-2" />
+            Resume
+          </a>
+        </Button>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 glass p-4 rounded-full transition-all duration-300 z-50"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-5 h-5 text-black" />
+        </button>
+      )}
     </div>
   );
-} 
+}

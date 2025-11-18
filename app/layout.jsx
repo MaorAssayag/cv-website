@@ -1,4 +1,9 @@
+import { Inter } from 'next/font/google'
 import './globals.css'
+import CursorGrid from '@/components/CursorGrid'
+import CustomCursor from '@/components/CustomCursor'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Maor Assayag - CV',
@@ -8,7 +13,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={inter.className}>
+        <CursorGrid />
+        <CustomCursor />
+        <main className="relative z-10">
+          {children}
+        </main>
+      </body>
     </html>
   )
-} 
+}
