@@ -105,10 +105,17 @@ export default function CursorGrid() {
             const rdx = x - ripple.x;
             const rdy = y - ripple.y;
             const rdist = Math.sqrt(rdx * rdx + rdy * rdy);
-            const rippleThickness = 30;
+            const rippleThickness = 50; // Increased for smoother gradient
 
             if (Math.abs(rdist - ripple.radius) < rippleThickness) {
-              const rippleForce = ripple.opacity * 0.5;
+              // Calculate distance from the center of the ripple band (0 to 1)
+              const distFromCenter = Math.abs(rdist - ripple.radius) / rippleThickness;
+
+              // Cosine falloff for smooth "hump" shape
+              const curve = Math.cos(distFromCenter * Math.PI / 2);
+
+              const rippleForce = ripple.opacity * 0.5 * curve;
+
               const rangle = Math.atan2(rdy, rdx);
               totalForceX += Math.cos(rangle) * rippleForce;
               totalForceY += Math.sin(rangle) * rippleForce;

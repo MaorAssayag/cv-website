@@ -444,12 +444,6 @@ export default function HomePage() {
       {/* Bottom Contact Buttons */}
       <div className="flex justify-center gap-4">
         <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
-          <a href="tel:+972532794699">
-            <Phone className="w-4 h-4 mr-2" />
-            Call Me
-          </a>
-        </Button>
-        <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
           <a href="assets/Maor_Assayag_Resume.pdf" download>
             <Download className="w-4 h-4 mr-2" />
             Resume

@@ -6,7 +6,7 @@ import CustomCursor from '@/components/CustomCursor'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Maor Assayag - CV',
+  title: 'Maor Assayag',
   description: 'Personal website of Maor Assayag, showcasing experience, education, and projects.',
 }
 
