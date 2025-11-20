@@ -213,6 +213,7 @@ export default function CursorGrid2() {
                                 // Apply both proximity to title and local darkening
                                 const finalIntensity = localIntensity * proximityStrength;
                                 opacity = baseOpacity + finalIntensity * 0.96;
+                                
                             }
                         }
                         

@@ -241,7 +241,9 @@ export default function HomePage() {
                 <p className="text-gray-500">Ben-Gurion University</p>
               </div>
               <span className="text-base font-mono text-gray-400">2015-2019</span>
-            </div>
+              </div>
+              <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
+              <li>Developed a communication system for deaf and blind people as the final engineering project</li>              </ul>
           </div>
         </div>
       </section>
