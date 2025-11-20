@@ -5,6 +5,7 @@ import { Github, Linkedin, Mail, Phone, Download, ExternalLink, ArrowUp } from '
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useDSP } from '@/context/DSPContext';
+import DSPVisualizer from '@/components/DSPVisualizer';
 
 export default function HomePage() {
   const { isDSPMode, setIsDSPMode, setTitleRect } = useDSP();
@@ -53,7 +54,17 @@ export default function HomePage() {
   const fadeClass = `transition-all duration-700 ${isDSPMode ? 'opacity-0 blur-sm pointer-events-none' : 'opacity-100'}`;
 
   return (
-    <div className="min-h-screen p-8 md:p-16 space-y-24 max-w-5xl mx-auto relative">
+    <>
+      {/* Black Background Overlay for DSP Mode */}
+      <div 
+        className={`fixed inset-0 bg-black transition-opacity duration-700 z-20 ${isDSPMode ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      />
+
+      {/* DSP Visualizer */}
+      <DSPVisualizer isActive={isDSPMode} />
+
+
+      <div className="min-h-screen p-8 md:p-16 space-y-24 max-w-5xl mx-auto relative">
 
       {/* Header / Contact */}
       <header className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
@@ -68,11 +79,11 @@ export default function HomePage() {
               Maor Assayag
             </h1>
 
-            {/* DSP Mode Text Reveal */}
-            <div className={`absolute top-full left-0 mt-12 text-gray-400 font-light text-4xl md:text-5xl leading-tight transition-all duration-1000 z-50 ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
-              <p>I had embrace spectrums and signals to my dreams too many time.</p>
-              <p className="mt-4">To me, FFT is nature's song <span className="font-bold text-gray-200">most elegant description</span></p>
-            </div>
+             {/* DSP Mode Text Reveal */}
+             <div className={`absolute top-full left-0 mt-12 text-gray-400 font-mono font-light text-xl md:text-xl leading-relaxed transition-all duration-1000 z-50 max-w-4xl ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
+               <p>Spectrums and signals have been woven into my dreams time and again.</p>
+               <p className="mt-4">FFT is, to me, the <span className="font-bold text-gray-200">most elegant description</span> of nature’s song.</p>
+             </div>
           </div>
 
           <p className={`text-lg md:text-xl text-gray-500 font-light tracking-wide ${fadeClass}`}>
@@ -506,6 +517,7 @@ export default function HomePage() {
           <ArrowUp className="w-5 h-5 text-black" />
         </button>
       )}
-    </div>
+      </div>
+    </>
   );
 }

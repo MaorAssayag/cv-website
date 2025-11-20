@@ -17,7 +17,9 @@ export default function CustomCursor() {
 
         return () => {
             document.removeEventListener('mousemove', moveCursor);
-            document.body.removeChild(cursor);
+            if (cursor && cursor.parentNode === document.body) {
+                document.body.removeChild(cursor);
+            }
         };
     }, []);
 

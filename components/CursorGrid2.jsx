@@ -161,10 +161,12 @@ export default function CursorGrid2() {
 
             const { points, cols, rows } = gridRef.current;
 
-            ctx.beginPath();
+            const baseOpacity = 0.04;
+            let proximityStrength = 0;
+            let darkeningCenterX = 0;
+            let darkeningCenterY = 0;
 
-            // Dynamic opacity based on proximity to title if available
-            let baseOpacity = 0.04;
+            // Check distance from mouse to title for smooth decay
             if (titleRect && !isDSPMode) {
                 const titleCenterX = titleRect.left + titleRect.width / 2;
                 const titleCenterY = titleRect.top + titleRect.height / 2;
@@ -172,38 +174,96 @@ export default function CursorGrid2() {
                     Math.pow(mouseRef.current.x - titleCenterX, 2) +
                     Math.pow(mouseRef.current.y - titleCenterY, 2)
                 );
-                if (mouseToTitleDist < 300) {
-                    baseOpacity += (1 - mouseToTitleDist / 300) * 0.1; // Darken up to 0.14
+                
+                // Smooth decay: active within 400px, with smooth falloff
+                const maxProximityDist = 200;
+                if (mouseToTitleDist < maxProximityDist) {
+                    // Smooth easing function (ease-out-cubic)
+                    const normalizedDist = mouseToTitleDist / maxProximityDist;
+                    proximityStrength = 1 - Math.pow(normalizedDist, 3);
+                    
+                    darkeningCenterX = mouseRef.current.x;
+                    darkeningCenterY = mouseRef.current.y;
                 }
             }
 
-            ctx.strokeStyle = `rgba(0, 0, 0, ${baseOpacity})`;
-            ctx.lineWidth = 1;
-
-            // Draw horizontal lines
+            // Draw horizontal lines with smooth darkening decay
             for (let j = 0; j < rows; j++) {
-                // Start line
                 if (points[0] && points[0][j]) {
-                    ctx.moveTo(points[0][j].x, points[0][j].y);
                     for (let i = 1; i < cols; i++) {
-                        const p = points[i][j];
-                        ctx.lineTo(p.x, p.y);
+                        const p1 = points[i - 1][j];
+                        const p2 = points[i][j];
+                        
+                        let opacity = baseOpacity;
+                        
+                        if (proximityStrength > 0) {
+                            const lineCenterX = (p1.x + p2.x) / 2;
+                            const lineCenterY = (p1.y + p2.y) / 2;
+                            const distToCursor = Math.sqrt(
+                                Math.pow(lineCenterX - darkeningCenterX, 2) +
+                                Math.pow(lineCenterY - darkeningCenterY, 2)
+                            );
+                            
+                            // Multi-level smooth decay around cursor
+                            const darkeningRadius = 350;
+                            if (distToCursor < darkeningRadius) {
+                                const normalizedDist = distToCursor / darkeningRadius;
+                                // Smooth easing with exponential decay
+                                const localIntensity = Math.pow(1 - normalizedDist, 2.5);
+                                // Apply both proximity to title and local darkening
+                                const finalIntensity = localIntensity * proximityStrength;
+                                opacity = baseOpacity + finalIntensity * 0.96;
+                            }
+                        }
+                        
+                        ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
                     }
                 }
             }
 
-            // Draw vertical lines
+            // Draw vertical lines with smooth darkening decay
             for (let i = 0; i < cols; i++) {
                 if (points[i] && points[i][0]) {
-                    ctx.moveTo(points[i][0].x, points[i][0].y);
                     for (let j = 1; j < rows; j++) {
-                        const p = points[i][j];
-                        ctx.lineTo(p.x, p.y);
+                        const p1 = points[i][j - 1];
+                        const p2 = points[i][j];
+                        
+                        let opacity = baseOpacity;
+                        
+                        if (proximityStrength > 0) {
+                            const lineCenterX = (p1.x + p2.x) / 2;
+                            const lineCenterY = (p1.y + p2.y) / 2;
+                            const distToCursor = Math.sqrt(
+                                Math.pow(lineCenterX - darkeningCenterX, 2) +
+                                Math.pow(lineCenterY - darkeningCenterY, 2)
+                            );
+                            
+                            // Multi-level smooth decay around cursor
+                            const darkeningRadius = 350;
+                            if (distToCursor < darkeningRadius) {
+                                const normalizedDist = distToCursor / darkeningRadius;
+                                // Smooth easing with exponential decay
+                                const localIntensity = Math.pow(1 - normalizedDist, 2.5);
+                                // Apply both proximity to title and local darkening
+                                const finalIntensity = localIntensity * proximityStrength;
+                                opacity = baseOpacity + finalIntensity * 0.96;
+                            }
+                        }
+                        
+                        ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
                     }
                 }
             }
-
-            ctx.stroke();
 
             animationFrameId = requestAnimationFrame(draw);
         };
