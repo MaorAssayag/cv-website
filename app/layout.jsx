@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import CursorGrid from '@/components/CursorGrid'
+import CursorGrid2 from '@/components/CursorGrid2'
 import CustomCursor from '@/components/CustomCursor'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CursorGrid />
+        <CursorGrid2 />
         <CustomCursor />
         <main className="relative z-10">
           {children}

@@ -1,12 +1,41 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Github, Linkedin, Mail, Phone, Download, ExternalLink, ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useDSP } from '@/context/DSPContext';
 
 export default function HomePage() {
+  const { isDSPMode, setIsDSPMode, setTitleRect } = useDSP();
+  const titleRef = useRef(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const updateRect = () => {
+      if (titleRef.current) {
+        setTitleRect(titleRef.current.getBoundingClientRect());
+      }
+    };
+
+    updateRect();
+    window.addEventListener('resize', updateRect);
+    window.addEventListener('scroll', updateRect);
+
+    return () => {
+      window.removeEventListener('resize', updateRect);
+      window.removeEventListener('scroll', updateRect);
+    };
+  }, [setTitleRect]);
+
+  useEffect(() => {
+    if (isDSPMode) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isDSPMode]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,21 +50,37 @@ export default function HomePage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const fadeClass = `transition-all duration-700 ${isDSPMode ? 'opacity-0 blur-sm pointer-events-none' : 'opacity-100'}`;
+
   return (
     <div className="min-h-screen p-8 md:p-16 space-y-24 max-w-5xl mx-auto relative">
 
       {/* Header / Contact */}
       <header className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-        <div className="space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-black">
-            Maor Assayag
-          </h1>
-          <p className="text-lg md:text-xl text-gray-500 font-light tracking-wide">
+        <div className="space-y-4 relative">
+          <div className="relative inline-block">
+            <h1
+              ref={titleRef}
+              onMouseEnter={() => setIsDSPMode(true)}
+              onMouseLeave={() => setIsDSPMode(false)}
+              className={`text-4xl md:text-5xl font-bold tracking-tighter transition-colors duration-700 cursor-default ${isDSPMode ? 'text-white z-50 relative mix-blend-normal' : 'text-black'}`}
+            >
+              Maor Assayag
+            </h1>
+
+            {/* DSP Mode Text Reveal */}
+            <div className={`absolute top-full left-0 mt-12 text-gray-400 font-light text-4xl md:text-5xl leading-tight transition-all duration-1000 z-50 ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
+              <p>I had embrace spectrums and signals to my dreams too many time.</p>
+              <p className="mt-4">To me, FFT is nature's song <span className="font-bold text-gray-200">most elegant description</span></p>
+            </div>
+          </div>
+
+          <p className={`text-lg md:text-xl text-gray-500 font-light tracking-wide ${fadeClass}`}>
             Seeking a senior DSP & AI research role to drive innovation and create positive social impact.
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-4">
+        <div className={`flex flex-wrap gap-4 ${fadeClass}`}>
           <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
             <a href="https://github.com/MaorAssayag" target="_blank" rel="noopener noreferrer">
               <Github className="w-4 h-4 mr-2" />
@@ -70,7 +115,7 @@ export default function HomePage() {
       </header>
 
       {/* Experience */}
-      <section className="space-y-12">
+      <section className={`space-y-12 ${fadeClass}`}>
         <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Experience</h2>
 
         <div className="space-y-8">
@@ -122,7 +167,7 @@ export default function HomePage() {
       </section>
 
       {/* Education */}
-      <section className="space-y-8">
+      <section className={`space-y-8 ${fadeClass}`}>
         <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Education</h2>
         <div className="grid md:grid-cols-1 gap-6">
           <div className="glass p-8 rounded-3xl space-y-4 relative overflow-hidden group">
@@ -191,7 +236,7 @@ export default function HomePage() {
       </section>
 
       {/* Open Source Projects */}
-      <section className="space-y-8">
+      <section className={`space-y-8 ${fadeClass}`}>
         <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Open Source Projects</h2>
         <div className="grid md:grid-cols-2 gap-6">
           {/* transmit-OFDM */}
@@ -338,7 +383,7 @@ export default function HomePage() {
       </section>
 
       {/* Awards */}
-      <section className="space-y-4">
+      <section className={`space-y-4 ${fadeClass}`}>
         <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Awards & Honors</h2>
         <div className="grid grid-cols-1 gap-4">
           <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
@@ -442,7 +487,7 @@ export default function HomePage() {
       </section>
 
       {/* Bottom Contact Buttons */}
-      <div className="flex justify-center gap-4">
+      <div className={`flex justify-center gap-4 ${fadeClass}`}>
         <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
           <a href="assets/Maor_Assayag_Resume.pdf" download>
             <Download className="w-4 h-4 mr-2" />
@@ -455,7 +500,7 @@ export default function HomePage() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 glass p-4 rounded-full transition-all duration-300 z-50"
+          className={`fixed bottom-8 right-8 glass p-4 rounded-full transition-all duration-300 z-50 ${isDSPMode ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
           aria-label="Scroll to top"
         >
           <ArrowUp className="w-5 h-5 text-black" />
