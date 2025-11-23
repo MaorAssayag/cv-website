@@ -30,12 +30,21 @@ export default function HomePage() {
   }, [setTitleRect]);
 
   useEffect(() => {
+    // Reserve space for scrollbar to prevent layout shift
+    document.documentElement.style.scrollbarGutter = 'stable';
+    
     if (isDSPMode) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.backgroundColor = 'black';
+      document.documentElement.style.transition = 'background-color 700ms';
     } else {
+      document.documentElement.style.backgroundColor = '';
       document.body.style.overflow = '';
     }
-    return () => { document.body.style.overflow = ''; };
+    return () => { 
+      document.body.style.overflow = '';
+      document.documentElement.style.backgroundColor = '';
+    };
   }, [isDSPMode]);
 
   useEffect(() => {
@@ -80,14 +89,14 @@ export default function HomePage() {
             </h1>
 
              {/* DSP Mode Text Reveal */}
-             <div className={`absolute top-full left-0 mt-12 text-gray-400 font-mono font-light text-xl md:text-xl leading-relaxed transition-all duration-1000 z-50 max-w-4xl ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
-               <p>Spectrums and signals have been woven into my dreams time and again.</p>
+             <div className={`absolute top-full left-0 mt-12 text-gray-400 font-mono font-light text-xl md:text-xl leading-relaxed transition-all duration-1000 z-50 max-w-6xl ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
                <p className="mt-4">FFT is, to me, the <span className="font-bold text-gray-200">most elegant description</span> of nature’s song.</p>
-             </div>
+              <p className="mt-4">I've dreamt of this song many, many times.</p>
+              </div>
           </div>
 
           <p className={`text-lg md:text-xl text-gray-500 font-light tracking-wide ${fadeClass}`}>
-            Seeking a senior DSP & AI research role to drive innovation and create positive social impact.
+            Seeking a senior R&D role to drive innovation and create positive social impact.
           </p>
         </div>
 
@@ -243,7 +252,7 @@ export default function HomePage() {
               <span className="text-base font-mono text-gray-400">2015-2019</span>
               </div>
               <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
-              <li>Developed a communication system for deaf and blind people as the final engineering project</li>              </ul>
+              <li>Developed a communication system for deaf-blind people as the final engineering project</li>              </ul>
           </div>
         </div>
       </section>
