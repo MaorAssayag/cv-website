@@ -90,8 +90,8 @@ export default function HomePage() {
             </h1>
 
              {/* DSP Mode Text Reveal */}
-             <div className={`absolute top-full left-0 mt-12 text-gray-400 font-mono font-light text-xl md:text-xl leading-relaxed transition-all duration-1000 z-50 max-w-6xl ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
-               <p className="mt-4">FFT is, to me, the <span className="font-bold text-gray-200">most elegant description</span> of nature’s song.</p>
+             <div className={`absolute top-full left-0 mt-12 text-gray-400 font-mono font-light text-xl md:text-xl leading-relaxed transition-all duration-1000 z-50 max-w-8xl ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
+               <p className="mt-4">To me, Fourier transform is the <span className="font-bold text-gray-200">most elegant description</span> of nature’s song.</p>
               <p className="mt-4">I've dreamt about this song many, many times.</p>
               </div>
           </div>
