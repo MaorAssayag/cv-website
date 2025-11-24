@@ -8,7 +8,7 @@ import { useDSP } from '@/context/DSPContext';
 import DSPVisualizer from '@/components/DSPVisualizer';
 
 export default function HomePage() {
-  const { isDSPMode, setIsDSPMode, setTitleRect } = useDSP();
+  const { isDSPMode, setIsDSPMode, setTitleRect, triggerFrameReassign } = useDSP();
   const titleRef = useRef(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -83,7 +83,8 @@ export default function HomePage() {
               ref={titleRef}
               onMouseEnter={() => setIsDSPMode(true)}
               onMouseLeave={() => setIsDSPMode(false)}
-              className={`text-4xl md:text-5xl font-bold tracking-tighter transition-colors duration-700 cursor-default ${isDSPMode ? 'text-white z-50 relative mix-blend-normal' : 'text-black'}`}
+              onClick={() => isDSPMode && triggerFrameReassign()}
+              className={`text-4xl md:text-5xl font-bold tracking-tighter transition-colors duration-700 ${isDSPMode ? 'text-white z-50 relative mix-blend-normal cursor-pointer' : 'text-black cursor-default'}`}
             >
               Maor Assayag
             </h1>
@@ -91,7 +92,7 @@ export default function HomePage() {
              {/* DSP Mode Text Reveal */}
              <div className={`absolute top-full left-0 mt-12 text-gray-400 font-mono font-light text-xl md:text-xl leading-relaxed transition-all duration-1000 z-50 max-w-6xl ${isDSPMode ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'}`}>
                <p className="mt-4">FFT is, to me, the <span className="font-bold text-gray-200">most elegant description</span> of nature’s song.</p>
-              <p className="mt-4">I've dreamt of this song many, many times.</p>
+              <p className="mt-4">I've dreamt about this song many, many times.</p>
               </div>
           </div>
 
