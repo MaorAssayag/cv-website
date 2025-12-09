@@ -64,6 +64,7 @@ export default function HomePage() {
 
   return (
     <>
+      
       {/* Black Background Overlay for DSP Mode */}
       <div 
         className={`fixed inset-0 bg-black transition-opacity duration-700 z-20 ${isDSPMode ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
