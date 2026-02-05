@@ -98,7 +98,7 @@ export default function HomePage() {
           </div>
 
           <p className={`text-lg md:text-xl text-gray-500 font-light tracking-wide ${fadeClass}`}>
-            Seeking a senior R&D role to drive innovation and create positive social impact.
+            Senior R&D Team Leader, ready for my next challenge.
           </p>
         </div>
 
@@ -122,17 +122,17 @@ export default function HomePage() {
             </a>
           </Button>
           <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
-            <a href="assets/Maor_Assayag_Resume.pdf" download>
+            <a href="assets/Maor Assayag CV - Senior R&D Team Leader.pdf" download>
               <Download className="w-4 h-4 mr-2" />
               Download CV
             </a>
           </Button>
-          <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+          {/* <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
             <a href="tel:+972532794699">
               <Phone className="w-4 h-4 mr-2" />
               Call Me
             </a>
-          </Button>
+          </Button> */}
         </div>
       </header>
 
@@ -144,22 +144,22 @@ export default function HomePage() {
           <div className="glass p-8 rounded-3xl space-y-4 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4" style={{ animationDuration: '800ms', animationFillMode: 'both' }}>
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
-                <h3 className="text-2xl font-bold">R&D Team Lead</h3>
+                <h3 className="text-2xl font-bold">R&D Director</h3>
                 <p className="text-gray-500">Israeli Navy R&D Center</p>
               </div>
               <span className="text-base font-mono text-gray-400">May 2020 – June 2025</span>
             </div>
-            <ul className="space-y-3 text-gray-700 leading-relaxed list-disc list-inside marker:text-gray-300">
-              <li>Led research, design, architecture, development, evaluation, integration, and maturation of communication sysetems</li>
-              <li>Leading teams of 15-20 programmers, engineers and QA.</li>
-              <li>My passion is to create. Dedicating years to 17-hour workdays and delivering ∼45k LOC per year.</li>
-              <li>Brought novel ideas from initial conception through R&D phases to successful deployment in new operational combat systems.</li>
-              <li>Designed and developed features of 35+ core microservices using RESTful API, Websocket, Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, TypeScript</li>
-              <li>Leading research in DSP projects, including RF communication system detection and decoding through spectrum analysis and advanced entropy theory in challenging environments (low SNR, Doppler effects, etc.)</li>
+              <ul className="space-y-3 text-gray-700 leading-relaxed list-disc list-inside marker:text-gray-300">
+              <li>Recognized as the most decorated technological officer in Navy history for pioneering innovation and leadership excellence</li>
+              <li>Led the full lifecycle of mission-critical software communication systems, from R&D to deployment</li>
+              <li>Mentored and led cross-functional teams of 15–20 engineers & QA, fostering a growth-mindset culture</li>
+              <li>Driven by a passion for building and hands-on leadership, I balanced 17-hour workdays with high-level oversight, personally delivering ~45k LOC annually</li>
+              <li>Designed and developed 40+ scalable microservices using a diverse tech stack including Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, and various APIs/databases</li>
+              <li>Led algorithmic R&D in DSP problems, utilizing data-driven insights to detect & decode RF in challenging conditions (low SNR, doppler)</li>
               <li>Designed and implemented custom communication protocols (encoding, compression, parsing, fragmentation, and encryption) over various RF bands/Satellite</li>
-              <li>Led orchestration solution engineering for real-time operational combat systems using Nomad, Consul, and Vault</li>
-              <li>Managed CI/CD process using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
-              <li>Interviewed 300+ young talents for unit enrollment across various roles</li>
+              <li>Engineered robust orchestration solutions for real-time combat environments using HashiCorp's stack (Nomad, Consul/Fabio, Vault)</li>
+              <li>Managed comprehensive CI/CD pipelines using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
+              <li>Recruited 300+ technical talents for unit-wide engineering, data science, and QA roles</li>
             </ul>
           </div>
 
@@ -172,7 +172,7 @@ export default function HomePage() {
               <span className="text-base font-mono text-gray-400">Oct 2020 – June 2025</span>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              Led UI/UX design for combat systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity
+              Led UI/UX design for mission-critical software communication systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity
             </p>
           </div>
 
@@ -239,9 +239,10 @@ export default function HomePage() {
                 </div>
                 <span className="text-base font-mono text-gray-400">2023-2025</span>
               </div>
-              <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
+                <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700">
                 <li>Subjects in the field of DSP and ML/DL</li>
-                <li>Research on predictive models uncovering temporal dependencies in sperm whale communication</li>
+                  <li>Research on predictive models uncovering temporal dependencies in sperm whale communication</li>
+                  <li>Supervised by Prof. Roee Diamant at The Underwater Acoustic & Navigation Lab</li>
               </ul>
             </div>
           </div>
@@ -513,9 +514,9 @@ export default function HomePage() {
       {/* Bottom Contact Buttons */}
       <div className={`flex justify-center gap-4 ${fadeClass}`}>
         <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
-          <a href="assets/Maor_Assayag_Resume.pdf" download>
+          <a href="assets/Maor Assayag CV - Senior R&D Team Leader.pdf" download>
             <Download className="w-4 h-4 mr-2" />
-            Resume
+            Download CV
           </a>
         </Button>
       </div>
