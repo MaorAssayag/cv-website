@@ -153,7 +153,7 @@ export default function HomePage() {
               <li>Recognized as the most decorated technological officer in Navy history for pioneering innovation and leadership excellence</li>
               <li>Led the full lifecycle of mission-critical software communication systems, from R&D to deployment</li>
               <li>Mentored and led cross-functional teams of 15–20 engineers & QA, fostering a growth-mindset culture</li>
-              <li>Driven by a passion for building and hands-on leadership, I balanced 17-hour workdays with high-level oversight, personally delivering ~45k LOC annually</li>
+              <li>Sustained 17-hour cycles of leadership and execution, serving as the primary architect and lead contributor to the codebase across all major projects</li>
               <li>Designed and developed 40+ scalable microservices using a diverse tech stack including Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, and various APIs/databases</li>
               <li>Led algorithmic R&D in DSP problems, utilizing data-driven insights to detect & decode RF in challenging conditions (low SNR, doppler)</li>
               <li>Designed and implemented custom communication protocols (encoding, compression, parsing, fragmentation, and encryption) over various RF bands/Satellite</li>
