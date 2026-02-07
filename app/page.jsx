@@ -98,7 +98,7 @@ export default function HomePage() {
           </div>
 
           <p className={`text-lg md:text-xl text-gray-500 font-light tracking-wide ${fadeClass}`}>
-            Senior R&D Team Leader, ready for my next challenge.
+            Senior R&D Team Lead, ready for my next challenge.
           </p>
         </div>
 
