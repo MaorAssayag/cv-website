@@ -158,12 +158,13 @@ export default function HomePage() {
               <li>Led algorithmic R&D in DSP problems, utilizing data-driven insights to detect & decode RF in challenging conditions (low SNR, doppler)</li>
               <li>Designed and implemented custom communication protocols (encoding, compression, parsing, fragmentation, and encryption) over various RF bands/Satellite</li>
               <li>Engineered robust orchestration solutions for real-time combat environments using HashiCorp's stack (Nomad, Consul/Fabio, Vault)</li>
+              <li>Led UI/UX design across teams, standardizing pixel-perfect design patterns and components to accelerate development velocity</li>
               <li>Managed comprehensive CI/CD pipelines using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
               <li>Recruited 300+ technical talents for unit-wide engineering, data science, and QA roles</li>
             </ul>
           </div>
 
-          <div className="glass p-8 rounded-3xl space-y-4">
+          {/* <div className="glass p-8 rounded-3xl space-y-4">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
                 <h3 className="text-2xl font-bold">UI/UX Director</h3>
@@ -174,7 +175,7 @@ export default function HomePage() {
             <p className="text-gray-700 leading-relaxed">
               Led UI/UX design for mission-critical software communication systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity
             </p>
-          </div>
+          </div> */}
 
           <div className="glass p-8 rounded-3xl space-y-4">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
@@ -182,7 +183,7 @@ export default function HomePage() {
                 <h3 className="text-2xl font-bold">Full-Stack Engineer</h3>
                 <p className="text-gray-500">Israeli Navy R&D Center</p>
               </div>
-              <span className="text-base font-mono text-gray-400">Oct 2019 – June 2025</span>
+              <span className="text-base font-mono text-gray-400">Oct 2019 – May 2020</span>
             </div>
           </div>
         </div>
