@@ -122,7 +122,7 @@ export default function HomePage() {
             </a>
           </Button>
           <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
-            <a href="assets/Maor Assayag CV - Senior R&D Team Leader.pdf" download>
+            <a href="assets/Maor Assayag CV - Senior R&D Team Lead.pdf" download>
               <Download className="w-4 h-4 mr-2" />
               Download CV
             </a>
