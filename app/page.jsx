@@ -98,7 +98,7 @@ export default function HomePage() {
           </div>
 
           <p className={`text-lg md:text-xl text-gray-500 font-light tracking-wide ${fadeClass}`}>
-            Senior R&D Team Lead, ready for my next challenge.
+            R&D Team Lead @ Applied Materials
           </p>
         </div>
 
@@ -140,42 +140,39 @@ export default function HomePage() {
       <section className={`space-y-12 ${fadeClass}`}>
         <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Experience</h2>
 
-        <div className="space-y-8">
+          <div className="space-y-8">
           <div className="glass p-8 rounded-3xl space-y-4 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4" style={{ animationDuration: '800ms', animationFillMode: 'both' }}>
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
               <div>
-                <h3 className="text-2xl font-bold">R&D Director</h3>
+                <h3 className="text-2xl font-bold">R&D Team Lead</h3>
+                <p className="text-gray-500">Applied Materials</p>
+              </div>
+              <span className="text-base font-mono text-gray-400">June 2026 – Present</span>
+              </div>
+              <ul className="space-y-3 text-gray-700 leading-relaxed list-disc list-inside marker:text-gray-300">
+              </ul>
+          </div>
+
+            
+          <div className="glass p-8 rounded-3xl space-y-4 transition-all duration-500 animate-in fade-in slide-in-from-bottom-4" style={{ animationDuration: '800ms', animationFillMode: 'both' }}>
+            <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
+              <div>
+                <h3 className="text-2xl font-bold">R&D Team Lead</h3>
                 <p className="text-gray-500">Israeli Navy R&D Center</p>
               </div>
               <span className="text-base font-mono text-gray-400">May 2020 – June 2025</span>
             </div>
               <ul className="space-y-3 text-gray-700 leading-relaxed list-disc list-inside marker:text-gray-300">
-              <li>Recognized as the most decorated technological officer in Navy history for pioneering innovation and leadership excellence</li>
-              <li>Led the full lifecycle of mission-critical software communication systems, from R&D to deployment</li>
-              <li>Mentored and led cross-functional teams of 20+ engineers & QA, fostering a growth-mindset culture</li>
-              <li>Sustained 17-hour cycles of leadership and execution, serving as the primary architect and lead contributor to the codebase across all major projects</li>
-              <li>Designed and developed 40+ scalable microservices using a diverse tech stack including Kotlin, Java, Python, Golang, C#, C++, NodeJS, Angular, and various APIs/databases</li>
-              <li>Led algorithmic R&D in DSP problems, utilizing data-driven insights to detect & decode RF in challenging conditions (low SNR, doppler)</li>
-              <li>Designed and implemented custom communication protocols (encoding, compression, parsing, fragmentation, and encryption) over various RF bands/Satellite</li>
-              <li>Engineered robust orchestration solutions for real-time combat environments using HashiCorp's stack (Nomad, Consul/Fabio, Vault)</li>
-              <li>Led UI/UX design across teams, standardizing pixel-perfect design patterns and components to accelerate development velocity</li>
-              <li>Managed comprehensive CI/CD pipelines using Git, Jfrog Artifactory, Azure DevOps, and Docker</li>
-              <li>Recruited 300+ technical talents for unit-wide engineering, data science, and QA roles</li>
-            </ul>
+                <li>Led an award-winning cross-functional team of 20+ engineers across full-stack, algorithms, and QA</li>
+                <li>Mentoring Team Leads and managing multiple Agile R&D squads</li>
+                <li>Architected and scaled national communication systems from single-ship deployments to fleet-wide operations, doubling team size and tripling project scope while earning multiple excellence awards</li>
+                <li>Designed and delivered 40+ scalable microservices and real-time distributed systems</li>
+                <li>Engineered high-performance communication protocols, including compression, encoding, and encryption mechanisms</li>
+                <li>Developed advanced DSP algorithms and ML models for real-time audio decoding in low-SNR, non-stationary environments</li>
+                <li>Led UI/UX standardization initiatives, creating reusable component frameworks</li>
+                <li>Engineered robust orchestration solutions for real-time combat environments and owned CI/CD pipelines</li>
+                <li>Recruited and evaluated 300+ engineering, data science, and QA roles</li>            </ul>
           </div>
-
-          {/* <div className="glass p-8 rounded-3xl space-y-4">
-            <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
-              <div>
-                <h3 className="text-2xl font-bold">UI/UX Director</h3>
-                <p className="text-gray-500">Israeli Navy R&D Center</p>
-              </div>
-              <span className="text-base font-mono text-gray-400">Oct 2020 – June 2025</span>
-            </div>
-            <p className="text-gray-700 leading-relaxed">
-              Led UI/UX design for mission-critical software communication systems, standardizing pixel-perfect design patterns and components across teams and systems to accelerate development velocity
-            </p>
-          </div> */}
 
           <div className="glass p-8 rounded-3xl space-y-4">
             <div className="flex flex-col md:flex-row justify-between md:items-center gap-2">
@@ -184,8 +181,14 @@ export default function HomePage() {
                 <p className="text-gray-500">Israeli Navy R&D Center</p>
               </div>
               <span className="text-base font-mono text-gray-400">Oct 2019 – May 2020</span>
+              </div>
+              <ul className="space-y-3 text-gray-700 leading-relaxed list-disc list-inside marker:text-gray-300">
+                <li>Engineered a new digital encryption full-stack system for fleet-wide deployment</li>
+                <li>Reverse-engineered legacy compression, enabling backward compatibility for payload fragmentation protocol</li>
+                <li>Architected monitoring solution for 15+ microservices, tracking metrics across mediums</li>
+              </ul>
             </div>
-          </div>
+            
         </div>
       </section>
 
@@ -410,8 +413,25 @@ export default function HomePage() {
 
       {/* Awards */}
       <section className={`space-y-4 ${fadeClass}`}>
-        <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Awards & Honors</h2>
-        <div className="grid grid-cols-1 gap-4">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400">Awards & Honors</h2>
+          
+
+          <div className="grid grid-cols-1 gap-4">
+          <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
+            <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
+              <img
+                src={`${process.env.NODE_ENV === 'production' ? '/cv-website' : ''}/assets/university_of_haifa.png`}
+                alt="University of Haifa"
+                className="w-48 h-48 object-contain transition-all duration-500"
+              />
+            </div>
+            <div className="relative z-10">
+              <h3 className="font-medium">M.Sc., Dean’s Honors for Graduate Academic Excellence</h3>
+              <p className="text-gray-500">2026</p>
+            </div>
+          </div>
+
+            
           <div className="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/80 transition-colors relative overflow-hidden group">
             <div className="absolute inset-0 flex items-center justify-end opacity-10 pointer-events-none">
               <img
