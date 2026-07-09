@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Github, Linkedin, Mail, Phone, Download, ExternalLink, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone, Download, ExternalLink, ArrowUp, BookOpen} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useDSP } from '@/context/DSPContext';
@@ -108,11 +108,17 @@ export default function HomePage() {
               <Github className="w-4 h-4 mr-2" />
               GitHub
             </a>
-          </Button>
+            </Button>
           <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
             <a href="https://linkedin.com/in/maorassayag" target="_blank" rel="noopener noreferrer">
               <Linkedin className="w-4 h-4 mr-2" />
               LinkedIn
+            </a>
+            </Button>
+            <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
+            <a href="https://scholar.google.com/citations?user=X_lo6QIAAAAJ" target="_blank" rel="noopener noreferrer">
+              <BookOpen className="w-4 h-4 mr-2" />
+              Google Scholar
             </a>
           </Button>
           <Button variant="outline" className="rounded-full border-black/10 hover:bg-black hover:text-white transition-all" asChild>
@@ -150,6 +156,8 @@ export default function HomePage() {
               <span className="text-base font-mono text-gray-400">June 2026 – Present</span>
               </div>
               <ul className="space-y-3 text-gray-700 leading-relaxed list-disc list-inside marker:text-gray-300">
+              Next-generation multi-beam electron inspection system
+
               </ul>
           </div>
 
@@ -247,6 +255,7 @@ export default function HomePage() {
                 <li>Subjects in the field of DSP and ML/DL</li>
                   <li>Research on predictive models uncovering temporal dependencies in sperm whale communication</li>
                   <li>Supervised by Prof. Roee Diamant at The Underwater Acoustic & Navigation Lab</li>
+                  <li><a href="https://doi.org/10.1080/09524622.2026.2684665" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-600">Exploring Statistical Relations Between Coda Sequences of Dominica Sperm Whale Pairs. Bioacoustics, 2026.</a></li>
               </ul>
             </div>
           </div>
